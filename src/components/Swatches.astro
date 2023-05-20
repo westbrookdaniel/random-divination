@@ -1,0 +1,55 @@
+---
+import { rand } from '../util'
+
+const r = rand(0, 255)
+const g = rand(0, 255)
+const b = rand(0, 255)
+
+const color1 = `rgb(${r}, ${g}, ${b})`
+
+const methods = ['Complementary', 'Analogous', 'Triadic'] as const
+
+const method = methods[rand(0, methods.length - 1)]!
+
+let color2: string
+let color3: string
+const variance = rand(0, 255 / 2)
+switch (method) {
+    case 'Complementary':
+        color2 = `rgb(${255 - r}, ${255 - g}, ${255 - b})`
+        color3 = `rgb(${r + variance}, ${g + variance}, ${b + variance})`
+        break
+    case 'Analogous':
+        color2 = `rgb(${r + variance}, ${g + variance}, ${b + variance})`
+        color3 = `rgb(${r - variance}, ${g - variance}, ${b - variance})`
+        break
+    case 'Triadic':
+        const dist = 255 / 3
+        color2 = `rgb(${r + dist}, ${g + dist}, ${b + dist})`
+        color3 = `rgb(${r - dist}, ${g - dist}, ${b - dist})`
+        break
+}
+---
+
+<div class="flex space-x-4">
+    <div
+        ara-label="Color Swatch #1"
+        style={{ background: color1 }}
+        class="w-32 h-32 rounded-full border-4 border-stone-100"
+    >
+    </div>
+
+    <div
+        ara-label="Color Swatch #2"
+        style={{ background: color2 }}
+        class="w-32 h-32 rounded-full border-4 border-stone-100"
+    >
+    </div>
+
+    <div
+        ara-label="Color Swatch #3"
+        style={{ background: color3 }}
+        class="w-32 h-32 rounded-full border-4 border-stone-100"
+    >
+    </div>
+</div>

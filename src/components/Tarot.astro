@@ -1,0 +1,34 @@
+---
+import { api } from '../api'
+
+const cards = await Promise.all(
+    Array.from({ length: 4 }).map(async () => {
+        const { data, error } = await api.wikipedia.get.randomPage()
+        if (!data) throw error
+        return data.originalimage
+    })
+)
+---
+
+<div class="absolute top-16 rotate-12" style={{ right: '550px' }}>
+    <div class="relative">
+        {
+            cards.map((card, index) => {
+                const i = index - 1
+                return (
+                    <div
+                        class="w-[200px] h-[300px] bg-center bg-cover bg-no-repeat rounded-lg shadow-xl absolute bg-stone-100"
+                        style={{
+                            backgroundImage: `url(${card.source})`,
+                            // lighty rotate and offset
+                            transform: `rotate(${i * 10}deg) translate(${
+                                i * 150
+                            }px, ${i * -30}px)`,
+                            zIndex: 4 - i,
+                        }}
+                    />
+                )
+            })
+        }
+    </div>
+</div>

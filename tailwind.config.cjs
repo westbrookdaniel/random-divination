@@ -5,7 +5,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 body: ['GeneralSans-Regular', 'sans-serif'],
-                heading: ['Aktura-Regular', 'serif'],
+                heading: ['GeneralSans-Medium', 'sans-serif'],
+                title: ['Aktura-Regular', 'serif'],
             },
         },
     },

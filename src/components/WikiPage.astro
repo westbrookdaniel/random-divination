@@ -1,0 +1,28 @@
+---
+import { api } from '../api'
+
+const { data, error } = await api.wikipedia.get.randomPage()
+if (!data) throw error
+---
+
+<div class="max-w-[65ch]">
+    <img
+        src={data.thumbnail.source}
+        alt={data.title}
+        width={data.thumbnail.width}
+        height={data.thumbnail.height}
+        style={{
+            width: data.thumbnail.width,
+            height: data.thumbnail.height,
+        }}
+        class="mb-4 rounded-md bg-stone-100 max-h-[50vh]"
+    />
+    <a
+        href={data.content_urls.desktop.page}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <h2>{data.title}</h2>
+    </a>
+    <p class="line-clamp-6">{data.extract}</p>
+</div>

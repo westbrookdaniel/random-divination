@@ -1,4 +1,7 @@
 ---
+import Swatches from '../components/Swatches.astro'
+import Tarot from '../components/Tarot.astro'
+import WikiPage from '../components/WikiPage.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
@@ -8,8 +11,10 @@ import Layout from '../layouts/Layout.astro'
             <h1 class="text-4xl">Random Divination</h1>
         </header>
         <main class="flex-grow">
-            <div class="p-8">
-                <p>Random things here</p>
+            <div class="p-8 space-y-8">
+                <WikiPage />
+                <Swatches />
+                <Tarot />
             </div>
         </main>
         <footer class="p-8 text-right">
