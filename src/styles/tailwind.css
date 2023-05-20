@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html,
+    body {
+        @apply bg-bg text-text font-body transition-colors duration-[0.36s];
+    }
+
+    a {
+        @apply text-accent underline hover:no-underline inline-block;
+    }
+
+    h1 {
+        @apply font-heading text-accent;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-heading text-text;
+    }
+
+    img {
+        @apply rounded-xl;
+    }
+
+    button {
+        @apply px-2 py-1 rounded-md text-sm flex items-center bg-text/10 text-text hover:bg-text/20 active:bg-text/30 transition-colors duration-75;
+    }
+}
