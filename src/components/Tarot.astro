@@ -15,6 +15,7 @@ const cards = await Promise.all(
         {
             cards.map((card, index) => {
                 const i = index - 1
+                if (!card) return null
                 return (
                     <div
                         class="w-[200px] h-[300px] bg-center bg-cover bg-no-repeat rounded-lg shadow-xl absolute bg-stone-100"

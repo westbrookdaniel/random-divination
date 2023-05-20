@@ -2,7 +2,7 @@
 import { api } from '../api'
 
 const { data, error } = await api.wikipedia.get.randomPage()
-if (!data) throw error
+if (!data?.thumbnail) throw error
 ---
 
 <div class="max-w-[65ch]">
